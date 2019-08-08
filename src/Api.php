@@ -45,8 +45,14 @@ class Api extends AbstractAPI
         if (is_array($method)) {
             $appMethod = $this->autoCompleteAppMethod(key($method));
             $operationType = current($method);
-        } elseif (is_string($method)) {
-            $appMethod = $this->autoCompleteAppMethod($method);
+        } elseif (! is_string($method)) {
+            Log::error('不支持的参数格式');
+            throw new \InvalidArgumentException('不支持的参数格式');
+        }
+        $appMethod = $this->autoCompleteAppMethod($method);
+        if ($params == null) {
+            $params = [];
+        } else {
             if (! isset($this->map[$appMethod])) {
                 $message = "map 文件中未设置 $appMethod 对应的 OperationType，请使用 [appMethod=>OperationType] 形式传递参数";
                 Log::error($message);
@@ -54,14 +60,12 @@ class Api extends AbstractAPI
             }
 
             $operationType = $this->map[$appMethod];
-        } else {
-            Log::error('不支持的参数格式');
-            throw new \InvalidArgumentException('不支持的参数格式');
+
+            $params = [
+                'OperationType' => $operationType,
+                'RequestBody' => $params,
+            ];
         }
-        $params = [
-            'OperationType' => $operationType,
-            'RequestBody' => $params,
-        ];
 
         $headers = [
             'Content-Type'   => 'application/json',
@@ -71,7 +75,7 @@ class Api extends AbstractAPI
         ];
         try {
             $http = $this->getHttp();
-            $response = $http->request('PUT', $this->getGateway().str_replace('.', '/', $appMethod), [
+            $response = $http->request(empty($params) ? 'GET' : 'PUT', $this->getGateway().str_replace('.', '/', $appMethod), [
                 'headers' => $headers,
                 'json' => $params,
                 'query' => [

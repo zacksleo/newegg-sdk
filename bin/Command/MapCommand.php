@@ -30,12 +30,6 @@ class MapCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        /*
-        $res = $this->parseNode('https://developer.newegg.com/documents/newegg_marketplace_api/item_management/get_manufacturer_request_status/');
-        var_dump($res);
-        exit;
-        */
-
         $output->writeln('正在解析 API 文档首页...');
         $html = file_get_contents($this->resolveUrl($input, self::GATEWAY));
         $crawler = new Crawler($html);
@@ -143,18 +137,8 @@ PHP;
                 return;
             }
         }
-        //*[@id="ajax-content-wrap"]/div[1]/div/div/div[1]/table[3]/tbody/tr[3]/td[4]
-        $operation = $crawler->filterXPath('//*[@id="ajax-content-wrap"]/div[1]/div/div/div[1]/table[3]/tbody/tr[2]/td[4]');
-        if ($operation->count() == 0) {
-            $operation = $crawler->filterXPath('//*/div[2]/div/div[2]/div/div/div/table[3]/tbody/tr[3]/td[4]');
-            if ($operation->count() == 0) {
-                $key = '';
-            } else {
-                $key = preg_replace('/Fixed\s+value(s?):\s*/', '', $operation->text());
-            }
-        } else {
-            $key = preg_replace('/Fixed\s+value(s?):\s*/', '', $operation->text());
-        }
+        $key = $this->resolveOperationType($crawler);
+
         $method = '';
 
         if (preg_match('/marketplace\/([a-z0-9]+\/)+[a-z0-9]+/', $resource->text(), $matches)) {
@@ -175,5 +159,35 @@ PHP;
         }
 
         return str_replace('https://', 'http://', $url);
+    }
+
+    private function resolveOperationType($crawler)
+    {
+        $operation = $crawler->filterXPath('//*[@id="ajax-content-wrap"]/div[1]/div/div/div[1]/table[3]/tbody/tr[2]/td[4]');
+        if ($operation->count() == 0) {
+            $operation = $crawler->filterXPath('//*/div[2]/div/div[2]/div/div/div/table[3]/tbody/tr[3]/td[4]');
+            if ($operation->count() == 0) {
+                $key = '';
+            } else {
+                $key = $operation->text();
+            }
+        } else {
+            $key = $operation->text();
+        }
+        if (strpos($key, 'Fixed') === false) {
+            $operation = $crawler->filterXPath('//*[@id="ajax-content-wrap"]/div[1]/div/div/div[1]/table[3]/tbody/tr[3]/td[4]');
+            if ($operation->count() == 0) {
+                return '';
+            }
+            $key = $operation->text();
+            if (strpos($key, 'Fixed') === false) {
+                $key = '';
+            }
+        } else {
+            $key = '';
+        }
+        $key = preg_replace('/Fixed\s+value(s?):(\s|&nbsp;)*/', '', $key);
+
+        return $key;
     }
 }
