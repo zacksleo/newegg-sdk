@@ -21,7 +21,8 @@ class MapCommand extends Command
         $this
             ->setName('map:generate')
             ->setDescription('生成map文件')
-            ->addOption('fake', '生成FakeCommand专用的map');
+            ->addOption('fake', '生成FakeCommand专用的map')
+            ->addOption('https', '使用 htttps');
     }
 
     /**
@@ -36,7 +37,7 @@ class MapCommand extends Command
         */
 
         $output->writeln('正在解析 API 文档首页...');
-        $html = file_get_contents(self::GATEWAY);
+        $html = file_get_contents($this->resolveUrl($input, self::GATEWAY));
         $crawler = new Crawler($html);
         $catalogs = $crawler->filterXpath('//*[@id="ajax-content-wrap"]/div[1]/div/div/div[1]/ol[2]/li/a')->each(function (Crawler $node, $i) {
             return [
@@ -57,7 +58,7 @@ PHP;
         $menus = [];
         $total = 0;
         foreach ($catalogs as $catalog) {
-            $html = file_get_contents($catalog['url']);
+            $html = file_get_contents($this->resolveUrl($input, $catalog['url']));
             $crawler = new Crawler($html);
             $raw .= <<<BLOCK
     /*
@@ -75,7 +76,6 @@ BLOCK;
                     'text'      => $node->text(),
                 ];
             });
-            $node = $crawler->filterXpath('//*[@id="logi"]/span');
 
             $menus[] = [
                 'links'=> $subLinks,
@@ -94,10 +94,9 @@ BLOCK;
         $keys = [];
         foreach ($menus as $menu) {
             foreach ($menu['links'] as $link) {
-                //echo $link['url']."\n";
                 $bar->setMessage($link['text']);
-                $node = $this->parseNode($link['url']);
-                if (! $mode) {
+                $node = $this->parseNode($input, $link['url']);
+                if (! $node) {
                     $bar->advance();
                     continue;
                 }
@@ -107,7 +106,6 @@ BLOCK;
                     '{$node['method']}'         => ['{$node['key']}' => '{$link['description']}'], \n
 BLOCK;
                 } else {
-                    //$prefix = '';
                     $keys[] = $link['text'];
                     $raw .= <<<BLOCK
     /*
@@ -129,12 +127,12 @@ BLOCK;
 PHP;
         $bar->finish();
         $fake = $input->getOption('fake') ?? false;
-        file_put_contents(__DIR__.'/'.$fake ? 'map-fake' : 'map'.'.php', $raw);
+        file_put_contents(__DIR__.'/'.$fake ? 'map-fake.php' : 'map.php', $raw);
     }
 
-    private function parseNode($url)
+    private function parseNode($input, $url)
     {
-        $html = file_get_contents($url);
+        $html = file_get_contents($this->resolveUrl($input, $url));
         $crawler = new Crawler($html);
         $resource = $crawler->filterXPath('//*[@id="ajax-content-wrap"]/div[1]/div/div/div[1]/pre[1]');
         if ($resource->count() == 0) {
@@ -167,5 +165,15 @@ PHP;
             'method' => $method,
             'key' => $key,
         ];
+    }
+
+    private function resolveUrl($input, $url)
+    {
+        $https = $input->getOption('https') ?? false;
+        if ($https) {
+            return str_replace('http://', 'https://', $url);
+        }
+
+        return str_replace('https://', 'http://', $url);
     }
 }
