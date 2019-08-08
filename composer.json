@@ -15,5 +15,20 @@
         "psr-4": {
             "Zacksleo\\NeweggSdk\\": "src"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Zacksleo\\NeweggSdk\\Command\\": "bin/Command"
+        }
+    },
+    "require-dev": {
+        "symfony/console": "^4.3",
+        "symfony/dom-crawler": "^4.3"
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
     }
 }

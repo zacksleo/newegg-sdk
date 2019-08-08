@@ -52,5 +52,5 @@ return [
     | @see https://developer.newegg.com/newegg_marketplace_api/rma_management/
     |
     */
-    'marketplace.servicemgmt.rma.rmainfo' => 'GetRMAInfoRequest',   //Get RMA Information
+    'marketplace.servicemgmt.rma.rmainfo' => 'GetRMAInfoRequest',
 ];
