@@ -83,6 +83,7 @@ return [
     */
 
     'marketplace.contentmgmt.manufacturer.manufacturerinfo' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Manufacturer Lookup for International Country
@@ -93,6 +94,7 @@ return [
     */
 
     'marketplace.contentmgmt.manufacturer.manufacturerinfo' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Submit Manufacturer Request
@@ -102,7 +104,8 @@ return [
     |
     */
 
-    'marketplace.contentmgmt.manufacturer.creationrequest' => ' SubmitManufacturerRequest',
+    'marketplace.contentmgmt.manufacturer.creationrequest' => 'SubmitManufacturerRequest',
+
     /*
     |--------------------------------------------------------------------------
     | Get Manufacturer Request Status
@@ -113,6 +116,7 @@ return [
     */
 
     'marketplace.contentmgmt.manufacturer.creationrequeststatus' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Volume Discount Creation/Update/Removal
@@ -123,6 +127,7 @@ return [
     */
 
     'marketplace.contentmgmt.item.volumediscount' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Volume Discount Request Result
@@ -133,6 +138,7 @@ return [
     */
 
     'marketplace.contentmgmt.item.volumediscount' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Item Inventory
@@ -143,6 +149,7 @@ return [
     */
 
     'marketplace.contentmgmt.item.international.inventory' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Item Inventory
@@ -153,6 +160,7 @@ return [
     */
 
     'marketplace.b2b.contentmgmt.item.inventory' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Item Price
@@ -163,6 +171,7 @@ return [
     */
 
     'marketplace.contentmgmt.item.international.price' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Item Price
@@ -173,6 +182,7 @@ return [
     */
 
     'marketplace.b2b.contentmgmt.item.price' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Update Item Inventory
@@ -183,6 +193,7 @@ return [
     */
 
     'marketplace.contentmgmt.item.international.inventory' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Update Item Price
@@ -193,6 +204,7 @@ return [
     */
 
     'marketplace.contentmgmt.item.international.price' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Update Inventory and Price
@@ -203,6 +215,7 @@ return [
     */
 
     'marketplace.b2b.contentmgmt.item.inventoryandprice' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Submit Item Warranty Request
@@ -213,6 +226,7 @@ return [
     */
 
     'marketplace.contentmgmt.item.warranty' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Order Status
@@ -223,6 +237,7 @@ return [
     */
 
     'marketplace.ordermgmt.orderstatus.orders' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Cancel Order
@@ -233,6 +248,7 @@ return [
     */
 
     'marketplace.ordermgmt.orderstatus.orders' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Ship Order
@@ -243,6 +259,7 @@ return [
     */
 
     'marketplace.ordermgmt.orderstatus.orders' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Order Confirmation
@@ -253,6 +270,7 @@ return [
     */
 
     'marketplace.ordermgmt.orderstatus.orders.confirmation' => 'OrderConfirmationRequest',
+
     /*
     |--------------------------------------------------------------------------
     | Remove Item
@@ -262,7 +280,8 @@ return [
     |
     */
 
-    'marketplace.ordermgmt.killitem.orders' => ' KillItemRequest',
+    'marketplace.ordermgmt.killitem.orders' => 'KillItemRequest',
+
     /*
     |--------------------------------------------------------------------------
     | Get Order Information
@@ -273,6 +292,7 @@ return [
     */
 
     'marketplace.ordermgmt.order.orderinfo' => 'GetOrderInfoRequest',
+
     /*
     |--------------------------------------------------------------------------
     | Get Order Information
@@ -283,6 +303,7 @@ return [
     */
 
     'marketplace.b2b.ordermgmt.order.orderinfo' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Order Information
@@ -293,6 +314,7 @@ return [
     */
 
     'marketplace.can.ordermgmt.order.orderinfo' => 'GetOrderInfoRequest',
+
     /*
     |--------------------------------------------------------------------------
     | Get SBN (Shipped by Newegg) Order Cancellation Request Result
@@ -303,6 +325,7 @@ return [
     */
 
     'marketplace.ordermgmt.sbnorder.cancellationresult' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Additional Order Information
@@ -313,6 +336,7 @@ return [
     */
 
     'marketplace.ordermgmt.order.addorderinfo' => 'GetAddOrderInfoRequest',
+
     /*
     |--------------------------------------------------------------------------
     | Get China Order Information
@@ -322,7 +346,8 @@ return [
     |
     */
 
-    'marketplace.ordermgmt.order.chinaorderinfo' => ' GetChinaOrderInfoRequest',
+    'marketplace.ordermgmt.order.chinaorderinfo' => 'GetChinaOrderInfoRequest',
+
     /*
     |--------------------------------------------------------------------------
     | Submit Shipping Request
@@ -333,6 +358,7 @@ return [
     */
 
     'marketplace.shippingservice.shippinglabel.shippingrequest' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Shipping Request Detail
@@ -343,6 +369,7 @@ return [
     */
 
     'marketplace.shippingservice.shippinglabel.shippingdetail' => 'GetShippingDetailRequest',
+
     /*
     |--------------------------------------------------------------------------
     | Confirm Shipping Request
@@ -353,6 +380,7 @@ return [
     */
 
     'marketplace.shippingservice.shippinglabel.confirmshippingrequest' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Void Shipping Request
@@ -363,6 +391,7 @@ return [
     */
 
     'marketplace.shippingservice.shippinglabel.voidshippingrequest' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Package List
@@ -373,6 +402,7 @@ return [
     */
 
     'marketplace.shippingservice.shippinglabel.packagelist' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Shipping Labels
@@ -383,6 +413,7 @@ return [
     */
 
     'marketplace.shippingservice.shippinglabel.shippinglabels' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Feed Status
@@ -392,7 +423,8 @@ return [
     |
     */
 
-    'marketplace.datafeedmgmt.feeds.status' => ' GetFeedStatusRequest',
+    'marketplace.datafeedmgmt.feeds.status' => 'GetFeedStatusRequest',
+
     /*
     |--------------------------------------------------------------------------
     | Get Feed Result
@@ -403,6 +435,7 @@ return [
     */
 
     'marketplace.datafeedmgmt.feeds.result' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Submit RMA
@@ -413,6 +446,7 @@ return [
     */
 
     'marketplace.servicemgmt.rma.newrma' => 'IssueRMARequest',
+
     /*
     |--------------------------------------------------------------------------
     | Edit RMA
@@ -423,6 +457,7 @@ return [
     */
 
     'marketplace.servicemgmt.rma.updaterma' => 'EditRMARequest',
+
     /*
     |--------------------------------------------------------------------------
     | Reject RMA
@@ -433,6 +468,7 @@ return [
     */
 
     'marketplace.servicemgmt.rma.updaterma' => 'RejectRMARequest',
+
     /*
     |--------------------------------------------------------------------------
     | Void RMA
@@ -443,6 +479,7 @@ return [
     */
 
     'marketplace.servicemgmt.rma.updaterma' => 'VoidRMARequest',
+
     /*
     |--------------------------------------------------------------------------
     | Receive RMA
@@ -453,6 +490,7 @@ return [
     */
 
     'marketplace.servicemgmt.rma.updaterma' => 'ReceiveRMARequest',
+
     /*
     |--------------------------------------------------------------------------
     | Get RMA Information
@@ -462,7 +500,8 @@ return [
     |
     */
 
-    'marketplace.servicemgmt.rma.rmainfo' => ' GetRMAInfoRequest',
+    'marketplace.servicemgmt.rma.rmainfo' => 'GetRMAInfoRequest',
+
     /*
     |--------------------------------------------------------------------------
     | Issue Courtesy Refund
@@ -473,6 +512,7 @@ return [
     */
 
     'marketplace.servicemgmt.courtesyrefund.new' => 'IssueCourtesyRefund',
+
     /*
     |--------------------------------------------------------------------------
     | Get Courtesy Refund Request Status
@@ -482,7 +522,8 @@ return [
     |
     */
 
-    'marketplace.servicemgmt.courtesyrefund.requeststatus' => ' GetCourtesyRefundStatusRequest',
+    'marketplace.servicemgmt.courtesyrefund.requeststatus' => 'GetCourtesyRefundStatusRequest',
+
     /*
     |--------------------------------------------------------------------------
     | Get Courtesy Refund Information
@@ -493,6 +534,7 @@ return [
     */
 
     'marketplace.servicemgmt.courtesyrefund.info' => 'GetCourtesyRefundInfo',
+
     /*
     |--------------------------------------------------------------------------
     | Get Report Status
@@ -503,6 +545,7 @@ return [
     */
 
     'marketplace.reportmgmt.report.status' => 'GetReportStatusRequest',
+
     /*
     |--------------------------------------------------------------------------
     | Get Industry List
@@ -513,6 +556,7 @@ return [
     */
 
     'marketplace.sellermgmt.seller.industry' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Subcategory Status
@@ -523,6 +567,7 @@ return [
     */
 
     'marketplace.sellermgmt.seller.subcategory' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Subcategory Status for International Country
@@ -533,6 +578,7 @@ return [
     */
 
     'marketplace.sellermgmt.seller.subcategory' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Download Feed Schema
@@ -543,6 +589,7 @@ return [
     */
 
     'marketplace.sellermgmt.seller.feedschema' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Subcategory Properties
@@ -553,6 +600,7 @@ return [
     */
 
     'marketplace.sellermgmt.seller.subcategoryproperty' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Subcategory Property Values
@@ -563,6 +611,7 @@ return [
     */
 
     'marketplace.sellermgmt.seller.propertyvalue' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Seller Status Check
@@ -573,6 +622,7 @@ return [
     */
 
     'marketplace.sellermgmt.seller.accountstatus' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Inbound Shipment Plan Suggestion
@@ -583,6 +633,7 @@ return [
     */
 
     'marketplace.sbnmgmt.inboundshipment.plansuggestion' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Submit Create Inbound Shipment Request
@@ -593,6 +644,7 @@ return [
     */
 
     'marketplace.sbnmgmt.inboundshipment.shipmentrequest' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Submit Void Inbound Shipment Request
@@ -603,6 +655,7 @@ return [
     */
 
     'marketplace.sbnmgmt.inboundshipment.shipmentrequest' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Inbound Shipment Status Request
@@ -613,6 +666,7 @@ return [
     */
 
     'marketplace.sbnmgmt.inboundshipment.shipmentstatus' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Inbound Shipment Request Result
@@ -623,6 +677,7 @@ return [
     */
 
     'marketplace.sbnmgmt.inboundshipment.shipmentresult' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Inbound Shipment List
@@ -633,6 +688,7 @@ return [
     */
 
     'marketplace.sbnmgmt.inboundshipment.shipmentlist' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Get Warehouse List
@@ -643,4 +699,5 @@ return [
     */
 
     'marketplace.sbnmgmt.inboundshipment.warehouse' => '',
+
     ];

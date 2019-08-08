@@ -110,7 +110,7 @@ BLOCK;
     | @see {$link['url']}
     |
     */\n
-    '{$node['method']}' => '{$node['key']}',\n
+    '{$node['method']}' => '{$node['key']}',\n\n
 BLOCK;
                 }
                 $bar->advance();
@@ -186,7 +186,7 @@ PHP;
         } else {
             $key = '';
         }
-        $key = preg_replace('/Fixed\s+value(s?):(\s|&nbsp;)*/', '', $key);
+        $key = preg_replace('/Fixed\s+value(s?):[\s ]*/', '', $key);
 
         return $key;
     }
