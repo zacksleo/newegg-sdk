@@ -150,10 +150,10 @@ PHP;
             if ($operation->count() == 0) {
                 $key = '';
             } else {
-                $key = preg_replace('/Fixed\s+value(s?):/', '', $operation->text());
+                $key = preg_replace('/Fixed\s+value(s?):\s*/', '', $operation->text());
             }
         } else {
-            $key = preg_replace('/Fixed\s+value(s?):/', '', $operation->text());
+            $key = preg_replace('/Fixed\s+value(s?):\s*/', '', $operation->text());
         }
         $method = '';
 
