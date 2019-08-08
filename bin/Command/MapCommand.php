@@ -113,7 +113,7 @@ BLOCK;
     | {$link['text']}
     |--------------------------------------------------------------------------
     |
-    | @see {$link['link']}
+    | @see {$link['url']}
     |
     */\n
     '{$node['method']}' => '{$node['key']}',\n
@@ -127,7 +127,7 @@ BLOCK;
 PHP;
         $bar->finish();
         $fake = $input->getOption('fake') ?? false;
-        file_put_contents(__DIR__.'/'.$fake ? 'map-fake.php' : 'map.php', $raw);
+        file_put_contents(__DIR__.'/'.($fake ? 'map-fake.php' : 'map.php'), $raw);
     }
 
     private function parseNode($input, $url)
