@@ -11,7 +11,85 @@ $ composer require zacksleo/newegg-sdk -vvv
 
 ## Usage
 
-TODO
+### Create Client
+
+```php
+        $newegg = new Newegg([
+            'key'       => 'app_key',
+            'secret'    => 'app_secret',
+            'seller_id' => 'seller_id',
+            'debug'     => false,
+            'log'       => [
+                'name'       => 'newegg',
+                'file'       => '/path/to/logs/newegg.log',
+                'level'      => 'error',
+                'permission' => 0777,
+            ],
+        ]);
+        try {
+            $res = $newegg->ordermgmt->order->chinaorderinfo([
+                'PageIndex'       => 1,
+                'PageSize'        => 1,
+                'RequestCriteria' => [
+                    'OrderNumberList'=> [
+                        'OrderNumber'=> ['orderNumber'],
+                    ],
+                ],
+            ]);
+        } catch (\Exception $e) {
+            $this->setLogFailed($this->log, $e->getMessage());
+
+            return;
+        }
+```
+
+### Api Call
+
+调用时，支持两种方式，一种是链式调用
+
+```php
+ $res = $newegg->ordermgmt->order->chinaorderinfo([
+    'PageIndex'       => 1,
+    'PageSize'        => 1,
+    'RequestCriteria' => [
+        'OrderNumberList'=> [
+            'OrderNumber'=> ['orderNumber'],
+        ],
+    ],
+]);
+```
+
+```php
+$res = $newegg->servicemgmt->rma->rmainfo([
+    'PageInfo'=> [
+        'PageIndex' => 1,
+        'PageSize'  => 1,
+    ],
+    'KeywordsType'  => 2,
+    'KeywordsValue' => 'OrderNumber',
+]);
+```
+
+另一种是使用 request 方法
+
+```php
+    $res = $newegg->request([
+        'ordermgmt.orderstatus.orders.'.$orderNumber => null,
+    ], [
+        'Action' => 2,
+        'Value' => [
+            'Shipment' => [
+                'Header' => [
+                    'SellerID' => 'seller_id',
+                    'SONumber' => $orderNumber,
+                ],
+                'PackageList' => [
+                    'Package' => array_values($packages),
+                ],
+            ],
+        ],
+    ]);
+```
 
 ## Contributing
 
