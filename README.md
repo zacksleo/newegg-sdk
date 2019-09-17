@@ -14,33 +14,18 @@ $ composer require zacksleo/newegg-sdk -vvv
 ### Create Client
 
 ```php
-        $newegg = new Newegg([
-            'key'       => 'app_key',
-            'secret'    => 'app_secret',
-            'seller_id' => 'seller_id',
-            'debug'     => false,
-            'log'       => [
-                'name'       => 'newegg',
-                'file'       => '/path/to/logs/newegg.log',
-                'level'      => 'error',
-                'permission' => 0777,
-            ],
-        ]);
-        try {
-            $res = $newegg->ordermgmt->order->chinaorderinfo([
-                'PageIndex'       => 1,
-                'PageSize'        => 1,
-                'RequestCriteria' => [
-                    'OrderNumberList'=> [
-                        'OrderNumber'=> ['orderNumber'],
-                    ],
-                ],
-            ]);
-        } catch (\Exception $e) {
-            $this->setLogFailed($this->log, $e->getMessage());
-
-            return;
-        }
+$newegg = new Newegg([
+    'key'       => 'app_key',
+    'secret'    => 'app_secret',
+    'seller_id' => 'seller_id',
+    'debug'     => false,
+    'log'       => [
+        'name'       => 'newegg',
+        'file'       => '/path/to/logs/newegg.log',
+        'level'      => 'error',
+        'permission' => 0777,
+    ],
+]);
 ```
 
 ### Api Call
